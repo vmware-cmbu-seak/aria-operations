@@ -1,0 +1,110 @@
+{
+   "37a3944b-ef10-401b-85f0-725cda77758a": {
+      "resourceKinds": [{
+         "resourceKindKey": "VirtualMachine",
+         "adapterKindKey": "VMWARE"
+      }],
+      "modificationTime": 1658360942268,
+      "name": "VM Memory Size Up Based by Swapping",
+      "formula": "((((${this, metric=guest|mem.physUsable_latest} - ${this, metric=guest|mem.free_latest}) - ${this, metric=guest|used_memory}) * ((${this, metric=guest|page.size_latest} * ${this, metric=guest|page.outRate_latest} * 300 * (100 * sqrt(${this, metric=mem|usage_average}))) / ${this, metric=guest|mem.physUsable_latest}) / 1024) / 1024)",
+      "description": "",
+      "unitId": "gb",
+      "modifiedBy": "bef0fe5f-8593-4dbf-b6e7-dae71be4039c"
+   },
+   "107a8e86-f06a-409c-bbe1-990869231286": {
+      "resourceKinds": [{
+         "resourceKindKey": "IdentityManagerClusterNode",
+         "adapterKindKey": "IdentityManagerAdapter"
+      }],
+      "modificationTime": 1657710558255,
+      "name": "VIDM Node Elastic Indices",
+      "formula": "sum(${adaptertype=IdentityManagerAdapter, objecttype=Elasticsearch-Health, metric=config|indicsCount, depth=1})",
+      "description": "",
+      "unitId": "",
+      "modifiedBy": "bef0fe5f-8593-4dbf-b6e7-dae71be4039c"
+   },
+   "300ec039-382a-494f-a74a-b636bc3ac20f": {
+      "resourceKinds": [{
+         "resourceKindKey": "IdentityManagerClusterNode",
+         "adapterKindKey": "IdentityManagerAdapter"
+      }],
+      "modificationTime": 1657711949653,
+      "name": "VIDM Node RMQ Queue",
+      "formula": "sum(${adaptertype=IdentityManagerAdapter, objecttype=RabbitMQ, metric=config|numberofQueue, depth=1})",
+      "description": "",
+      "unitId": "",
+      "modifiedBy": "bef0fe5f-8593-4dbf-b6e7-dae71be4039c"
+   },
+   "bccd1080-283b-495c-9a86-273695a30272": {
+      "resourceKinds": [{
+         "resourceKindKey": "IdentityManagerAdapterInstance",
+         "adapterKindKey": "IdentityManagerAdapter"
+      }],
+      "modificationTime": 1657714400938,
+      "name": "VIDM Service RMQ Health",
+      "formula": "sum(${adaptertype=IdentityManagerAdapter, objecttype=IdentityManagerClusterNode, metric=Super Metric|sm_47bb7be7-9cbf-4956-bb22-9b5338f060b1, depth=1}) / 3",
+      "description": "",
+      "unitId": "percent",
+      "modifiedBy": "bef0fe5f-8593-4dbf-b6e7-dae71be4039c"
+   },
+   "47bb7be7-9cbf-4956-bb22-9b5338f060b1": {
+      "resourceKinds": [{
+         "resourceKindKey": "IdentityManagerClusterNode",
+         "adapterKindKey": "IdentityManagerAdapter"
+      }],
+      "modificationTime": 1657714431414,
+      "name": "VIDM Node RMQ Status",
+      "formula": "sum(${adaptertype=IdentityManagerAdapter, objecttype=RabbitMQ, metric=System Attributes|health, depth=1})",
+      "description": "",
+      "unitId": "percent",
+      "modifiedBy": "bef0fe5f-8593-4dbf-b6e7-dae71be4039c"
+   },
+   "f27205dd-4bac-4a22-8a13-38ff16be5c99": {
+      "resourceKinds": [{
+         "resourceKindKey": "IdentityManagerAdapterInstance",
+         "adapterKindKey": "IdentityManagerAdapter"
+      }],
+      "modificationTime": 1657714314263,
+      "name": "VIDM Service Elastic Health",
+      "formula": "sum(${adaptertype=IdentityManagerAdapter, objecttype=IdentityManagerClusterNode, metric=Super Metric|sm_55b37b42-fc9f-455a-98ad-54a433157340, depth=1}) / 3",
+      "description": "",
+      "unitId": "percent",
+      "modifiedBy": "bef0fe5f-8593-4dbf-b6e7-dae71be4039c"
+   },
+   "41833255-dbfa-4dc6-9687-5cedde76cae6": {
+      "resourceKinds": [{
+         "resourceKindKey": "IdentityManagerClusterNode",
+         "adapterKindKey": "IdentityManagerAdapter"
+      }],
+      "modificationTime": 1657710481869,
+      "name": "VIDM Node Elastic Shard",
+      "formula": "sum(${adaptertype=IdentityManagerAdapter, objecttype=Elasticsearch-Health, metric=config|unassignedShared, depth=1})",
+      "description": "",
+      "unitId": "",
+      "modifiedBy": "bef0fe5f-8593-4dbf-b6e7-dae71be4039c"
+   },
+   "55b37b42-fc9f-455a-98ad-54a433157340": {
+      "resourceKinds": [{
+         "resourceKindKey": "IdentityManagerClusterNode",
+         "adapterKindKey": "IdentityManagerAdapter"
+      }],
+      "modificationTime": 1657714419281,
+      "name": "VIDM Node Elastic Status",
+      "formula": "sum(${adaptertype=IdentityManagerAdapter, objecttype=Elasticsearch-Health, metric=System Attributes|health, depth=1})",
+      "description": "",
+      "unitId": "percent",
+      "modifiedBy": "bef0fe5f-8593-4dbf-b6e7-dae71be4039c"
+   },
+   "0494a38c-4edf-4f1a-9f8d-ab8b7c394543": {
+      "resourceKinds": [{
+         "resourceKindKey": "IdentityManagerClusterNode",
+         "adapterKindKey": "IdentityManagerAdapter"
+      }],
+      "modificationTime": 1657711830331,
+      "name": "VIDM Node Elastic Docs",
+      "formula": "sum(${adaptertype=IdentityManagerAdapter, objecttype=Elasticsearch-Health, metric=config|docsCount, depth=1})",
+      "description": "",
+      "unitId": "",
+      "modifiedBy": "bef0fe5f-8593-4dbf-b6e7-dae71be4039c"
+   }
+}
